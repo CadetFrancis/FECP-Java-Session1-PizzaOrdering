@@ -1,5 +1,4 @@
 package org.example;
-import java.sql.SQLOutput;
 import java.util.*;
 
 
@@ -42,8 +41,6 @@ public class Main {
                     printOrders(pizzas,quantities);
                     System.out.print("Order number to remove: ");
                     int removeIndex = s.nextInt() - 1;
-                    s.nextLine();
-
                     removeOrder(pizzas, quantities, removeIndex);
                     break;
                 case 4:
@@ -52,15 +49,11 @@ public class Main {
                 case 5:
                     System.out.println("--- Thank You! ---");
                     exit = true;
-                    System.exit(0);
                 default:
                     System.out.println("Invalid Option");
                     break;
             }
-
         }
-
-
     }
     public static void addOrder(ArrayList<String> pizzas, ArrayList<Integer> quantities, String pizzaType, int quantity){
         Scanner s = new Scanner(System.in);
