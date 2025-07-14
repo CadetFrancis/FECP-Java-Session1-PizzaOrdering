@@ -56,25 +56,23 @@ public class Main {
         }
     }
     public static void addOrder(ArrayList<String> pizzas, ArrayList<Integer> quantities, String pizzaType, int quantity){
-        Scanner s = new Scanner(System.in);
-
-        while(quantity <= 0){
+        if (quantity <= 0) {
             System.out.println("Quantity must be positive");
-            System.out.print("Quantity: ");
-            quantity = s.nextInt();
+            return;
         }
+
         for (int i = 0; i < pizzas.size(); i++) {
             if (pizzas.get(i).equalsIgnoreCase(pizzaType)) {
                 quantities.set(i, quantities.get(i) + quantity);
-                System.out.printf("Added %d more to existing order: %s",quantity, pizzaType);
-                System.out.println();
-                System.out.println();
+                System.out.printf("Added %d more to existing order: %s%n%n", quantity, pizzaType);
                 return;
             }
         }
+
         pizzas.add(pizzaType);
         quantities.add(quantity);
     }
+
     public static void updateOrder(ArrayList<Integer> quantities, int index, int newQuantity){
         if (index < 0 || index >= quantities.size()) {
             System.out.println("Invalid order number");
